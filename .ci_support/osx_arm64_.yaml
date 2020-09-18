@@ -1,11 +1,13 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '11.0'
+aws_c_common:
+- 0.4.57
 c_compiler:
 - clang
 c_compiler_version:
 - '11'
 channel_sources:
-- conda-forge/label/llvm_rc,conda-forge
+- conda-forge/label/llvm_rc,conda-forge,https://conda-web.anaconda.org/conda-forge
 channel_targets:
 - conda-forge main
 cxx_compiler:
