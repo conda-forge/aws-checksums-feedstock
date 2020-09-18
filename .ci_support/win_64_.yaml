@@ -1,3 +1,5 @@
+aws_c_common:
+- 0.4.57
 c_compiler:
 - vs2017
 channel_sources:
