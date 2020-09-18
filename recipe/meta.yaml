@@ -20,6 +20,8 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - ninja
+  host:
+    - aws-c-common
 
 test:
   commands:
