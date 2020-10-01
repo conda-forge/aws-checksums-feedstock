@@ -3,5 +3,5 @@ __migrator:
   kind: version
   migration_number: 1
 aws_c_common:
-- 0.4.58
-migrator_ts: 1601454426.7389698
+- 0.4.59
+migrator_ts: 1601553108.588969
