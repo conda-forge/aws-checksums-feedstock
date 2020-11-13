@@ -5,11 +5,9 @@ Home: https://github.com/awslabs/aws-checksums
 
 Package license: Apache-2.0
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/aws-checksums-feedstock/blob/master/LICENSE.txt)
 
 Summary: Cross-Platform HW accelerated CRC32c and CRC32 with fallback to efficient SW implementations. C interface with language bindings for each of our SDKs.
-
-
 
 Current build status
 ====================
