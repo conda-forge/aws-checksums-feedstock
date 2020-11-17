@@ -10,7 +10,7 @@ source:
   sha256: c9d0100a5743765fc8034e34e2310f77f59b1adab6f2e2f2d4d2a3bd81b2a36d
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage("aws-checksums", max_pin="x.x.x") }}
 
@@ -26,6 +26,7 @@ requirements:
 test:
   commands:
     - test -f $PREFIX/lib/libaws-checksums${SHLIB_EXT}  # [unix]
+    - test -f $PREFIX/lib/libaws-checksums.a  # [unix]
     - test -f $PREFIX/include/aws/checksums/exports.h  # [unix]
 
 about:
@@ -38,3 +39,4 @@ about:
 extra:
   recipe-maintainers:
     - xhochy
+    - davidbrochart
