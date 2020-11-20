@@ -96,6 +96,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-aws--checksums-green.svg)](https://anaconda.org/conda-forge/aws-checksums) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/aws-checksums.svg)](https://anaconda.org/conda-forge/aws-checksums) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/aws-checksums.svg)](https://anaconda.org/conda-forge/aws-checksums) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/aws-checksums.svg)](https://anaconda.org/conda-forge/aws-checksums) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-aws--checksums--static-green.svg)](https://anaconda.org/conda-forge/aws-checksums-static) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/aws-checksums-static.svg)](https://anaconda.org/conda-forge/aws-checksums-static) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/aws-checksums-static.svg)](https://anaconda.org/conda-forge/aws-checksums-static) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/aws-checksums-static.svg)](https://anaconda.org/conda-forge/aws-checksums-static) |
 
 Installing aws-checksums
 ========================
@@ -106,10 +107,10 @@ Installing `aws-checksums` from the `conda-forge` channel can be achieved by add
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `aws-checksums` can be installed with:
+Once the `conda-forge` channel has been enabled, `aws-checksums, aws-checksums-static` can be installed with:
 
 ```
-conda install aws-checksums
+conda install aws-checksums aws-checksums-static
 ```
 
 It is possible to list all of the versions of `aws-checksums` available on your platform with:
@@ -182,5 +183,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@davidbrochart](https://github.com/davidbrochart/)
 * [@xhochy](https://github.com/xhochy/)
 
