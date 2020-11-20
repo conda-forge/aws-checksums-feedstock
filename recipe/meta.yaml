@@ -23,12 +23,51 @@ requirements:
   host:
     - aws-c-common
 
-test:
-  commands:
-    - test -f $PREFIX/lib/libaws-checksums${SHLIB_EXT}  # [unix]
-    - test -f $PREFIX/lib/libaws-checksums.a  # [unix]
-    - test -f $PREFIX/include/aws/checksums/exports.h  # [unix]
+outputs:
+  - name: aws-checksums
+    script: build-shared.sh  # [unix]
+    script: bld-shared.bat  # [win]
+    build:
+      activate_in_script: True
+      run_exports:
+        - {{ pin_subpackage("aws-checksums", max_pin="x.x.x") }}
+    requirements:
+      build:
+        - cmake
+        - {{ compiler('c') }}
+        - {{ compiler('cxx') }}
+        - ninja
+      host:
+        - aws-c-common
+    test:
+      commands:
+        - test -f $PREFIX/lib/libaws-checksums${SHLIB_EXT}  # [unix]
+        - test ! -f $PREFIX/lib/libaws-checksums.a  # [unix]
+        - test -f $PREFIX/include/aws/checksums/exports.h  # [unix]
+        - if not exist %PREFIX%\\Library\\bin\\aws-checksums.dll exit 1  # [win]
+        - if exist %PREFIX%\\Library\\lib\\aws-checksums.lib exit 1  # [win]
 
+  - name: aws-checksums-static
+    script: build-static.sh  # [unix]
+    script: bld-static.bat  # [win]
+    build:
+      activate_in_script: True
+    requirements:
+      build:
+        - cmake
+        - {{ compiler('c') }}
+        - {{ compiler('cxx') }}
+        - ninja
+      host:
+        - aws-c-common-static
+        - {{ pin_subpackage("aws-checksums", exact=True) }}
+    test:
+      commands:
+        - test ! -f $PREFIX/lib/libaws-checksums${SHLIB_EXT}  # [unix]
+        - test -f $PREFIX/lib/libaws-checksums.a  # [unix]
+        - test -f $PREFIX/include/aws/checksums/exports.h  # [unix]
+        - if exist %PREFIX%\\Library\\bin\\aws-checksums.dll exit 1  # [win]
+        - if not exist %PREFIX%\\Library\\lib\\aws-checksums.lib exit 1  # [win]
 about:
   home: https://github.com/awslabs/aws-checksums
   license: Apache-2.0
