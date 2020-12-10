@@ -10,15 +10,14 @@ source:
   sha256: c9d0100a5743765fc8034e34e2310f77f59b1adab6f2e2f2d4d2a3bd81b2a36d
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage("aws-checksums", max_pin="x.x.x") }}
 
 requirements:
   build:
-    - cmake
+    - cmake !=3.19.0,!=3.19.1
     - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
     - ninja
   host:
     - aws-c-common
