@@ -18,7 +18,6 @@ requirements:
   build:
     - cmake !=3.19.0,!=3.19.1
     - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
     - ninja
   host:
     - aws-c-common
