@@ -1,5 +1,5 @@
 {% set name = "aws-checksums" %}
-{% set version = "0.1.15" %}
+{% set version = "0.1.16" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/awslabs/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: b8e9c12ebfa95c91d89f4f3fea5b257d2aa22382db930555225d6b2f6a65673e
+  sha256: cce88d8ef1e957575f2fbfc149831385993365a7807206aee85a0b23bf649392
 
 build:
   number: 0
