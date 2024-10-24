@@ -10,7 +10,7 @@ source:
   sha256: aae619de7fb5908a52223eae3b80fae70260eed5919ad4c385b2d5a144a641f0
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage("aws-checksums", max_pin="x.x.x") }}
 
