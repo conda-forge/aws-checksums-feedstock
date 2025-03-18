@@ -13,7 +13,7 @@ source:
   sha256: c688f311db8a1b70bb6d22f6e8f2817b39e1419546e339cf753d61340969eeb4
 
 build:
-  number: 2
+  number: 3
 
 requirements:
   build:
@@ -29,10 +29,9 @@ requirements:
 tests:
   - script:
       - if: unix
-        then: test -f $PREFIX/lib/libaws-checksums${SHLIB_EXT}
-      - if: unix
-        then: test -f $PREFIX/include/aws/checksums/exports.h
-
+        then:
+          - test -f $PREFIX/lib/libaws-checksums${SHLIB_EXT}
+          - test -f $PREFIX/include/aws/checksums/exports.h
 about:
   license: Apache-2.0
   license_file: LICENSE
