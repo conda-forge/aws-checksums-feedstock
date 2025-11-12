@@ -9,6 +9,8 @@ Package license: Apache-2.0
 
 Summary: Cross-Platform HW accelerated CRC32c and CRC32 with fallback to efficient SW implementations. C interface with language bindings for each of our SDKs.
 
+Development: https://github.com/awslabs/aws-checksums
+
 Current build status
 ====================
 
