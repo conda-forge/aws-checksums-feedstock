@@ -13,7 +13,7 @@ source:
   sha256: 178e8398d98111f29150f7813a70c20ad97ab30be0de02525440355fe84ccb1d
 
 build:
-  number: 3
+  number: 4
 
 requirements:
   build:
@@ -37,6 +37,7 @@ about:
   license_file: LICENSE
   summary: Cross-Platform HW accelerated CRC32c and CRC32 with fallback to efficient SW implementations. C interface with language bindings for each of our SDKs.
   homepage: https://github.com/awslabs/aws-checksums
+  repository: https://github.com/awslabs/aws-checksums
 
 extra:
   recipe-maintainers:
