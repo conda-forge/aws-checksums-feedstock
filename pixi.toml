@@ -5,7 +5,7 @@
 
 [workspace]
 name = "aws-checksums-feedstock"
-version = "3.53.0"  # conda-smithy version used to generate this file
+version = "3.53.3"  # conda-smithy version used to generate this file
 description = "Pixi configuration for conda-forge/aws-checksums-feedstock"
 authors = ["@conda-forge/aws-checksums"]
 channels = ["conda-forge"]
