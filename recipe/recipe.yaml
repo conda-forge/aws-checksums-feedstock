@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: aws-checksums
-  version: "0.2.9"
+  version: "0.2.10"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/awslabs/${{ name }}/archive/v${{ version }}.tar.gz
-  sha256: eb59664a90ef8c09e595ee40daeb9d00ae32f2a75e4b93f2830df4bebdd68033
+  sha256: cb6509f75e42ee25c372a6d379e8582ce5179e5335183842e808f7d8abb0c314
 
 build:
   number: 0
