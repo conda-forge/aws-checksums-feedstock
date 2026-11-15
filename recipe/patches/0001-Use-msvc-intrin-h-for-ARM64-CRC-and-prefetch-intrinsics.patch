@@ -1,0 +1,37 @@
+From b07a83c89a71a39f19ce4a2a3c0716cad62a3a2e Mon Sep 17 00:00:00 2001
+From: conda-forge <conda-forge@users.noreply.github.com>
+Date: Sun, 15 Nov 2026 10:56:38 +0000
+Subject: [PATCH] fix: use MSVC's <intrin.h> for ARM64 CRC and prefetch
+ intrinsics
+
+crc32c_arm.c uses __prefetch plus the __crc32b/__crc32d/__crc32cb/__crc32cd
+intrinsics. MSVC declares all of these in <intrin.h>; <arm64_neon.h> only holds
+the NEON vector intrinsics and does not include <intrin.h>. Building with plain
+cl.exe for ARM64 (as conda-forge does for its native win-arm64 builds) therefore
+fails with undeclared identifiers, while clang-cl (which uses <arm_acle.h>) and
+the GCC/Clang ARM paths keep working.
+---
+ source/arm/crc32c_arm.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/source/arm/crc32c_arm.c b/source/arm/crc32c_arm.c
+index 5057b99..005356a 100644
+--- a/source/arm/crc32c_arm.c
++++ b/source/arm/crc32c_arm.c
+@@ -7,10 +7,13 @@
+ #if (defined(_M_ARM64) || defined(__aarch64__) || defined(__arm__))
+ #    include <aws/checksums/private/crc32_priv.h>
+ /* clang-cl defines _M_ARM64, but it is clang underneath: the CRC intrinsics come from
+- * clang's <arm_acle.h> rather than MSVC's <arm64_neon.h>, and prefetch is spelled
+- * __builtin_prefetch rather than MSVC's __prefetch. */
++ * clang's <arm_acle.h> rather than MSVC's <intrin.h>, and prefetch is spelled
++ * __builtin_prefetch rather than MSVC's __prefetch.
++ * MSVC declares __prefetch and the __crc32* family in <intrin.h>; <arm64_neon.h> only
++ * provides the NEON vector intrinsics and does not include <intrin.h>, so a plain cl.exe
++ * ARM64 build fails with undeclared identifiers. */
+ #    if defined(_M_ARM64) && !defined(__clang__)
+-#        include <arm64_neon.h>
++#        include <intrin.h>
+ #        define PREFETCH(p) __prefetch(p)
+ #    else
+ #        include <arm_acle.h>

@@ -11,9 +11,11 @@ package:
 source:
   url: https://github.com/awslabs/${{ name }}/archive/v${{ version }}.tar.gz
   sha256: b24d4896e8406ddff8080037936c86d539929369918265694bedcb887cbe602b
+  patches:
+    - patches/0001-Use-msvc-intrin-h-for-ARM64-CRC-and-prefetch-intrinsics.patch
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -40,6 +42,7 @@ about:
   repository: https://github.com/awslabs/aws-checksums
 
 extra:
+  feedstock-name: aws-checksums
   recipe-maintainers:
     - xhochy
     - conda-forge/aws-sdk-cpp
